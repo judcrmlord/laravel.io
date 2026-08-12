@@ -21,7 +21,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Scout\Searchable;
-
+use Spatie\Permission\Traits\HasRoles;
 final class User extends Authenticatable implements FilamentUser, MustVerifyEmail
 {
     use HasApiTokens;
@@ -30,6 +30,7 @@ final class User extends Authenticatable implements FilamentUser, MustVerifyEmai
     use Notifiable;
     use PreparesSearch;
     use Searchable;
+    use HasRoles;
 
     const TABLE = 'users';
 
