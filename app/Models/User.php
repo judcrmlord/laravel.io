@@ -2,6 +2,20 @@
 
 namespace App\Models;
 
+use Spatie\Permission\Traits\HasRoles;
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+
+// keep your other use statements here...
+
+class User extends Authenticatable
+{
+    use HasApiTokens, Notifiable, HasRoles;
+
+    // rest of your code...
+}
 use App\Concerns\HasTimestamps;
 use App\Concerns\PreparesSearch;
 use App\Enums\NotificationType;
