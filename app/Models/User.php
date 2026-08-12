@@ -18,18 +18,14 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Scout\Searchable;
 
 final class User extends Authenticatable implements FilamentUser, MustVerifyEmail
 {
-    use HasApiTokens;
-    use HasFactory;
-    use HasTimestamps;
-    use Notifiable;
-    use PreparesSearch;
-    use Searchable;
+   use HasApiTokens, HasFactory, HasRoles, HasTimestamps, Notifiable, PreparesSearch, Searchable;
 
     const TABLE = 'users';
 
