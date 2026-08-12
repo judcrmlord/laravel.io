@@ -1,5 +1,5 @@
 <?php
-
+use Spatie\Permission\Traits\HasRoles;
 namespace App\Models;
 
 use App\Concerns\HasTimestamps;
@@ -25,11 +25,12 @@ use Laravel\Scout\Searchable;
 final class User extends Authenticatable implements FilamentUser, MustVerifyEmail
 {
     use HasApiTokens;
-    use HasFactory;
-    use HasTimestamps;
-    use Notifiable;
-    use PreparesSearch;
-    use Searchable;
+use HasFactory;
+use HasTimestamps;
+use Notifiable;
+use PreparesSearch;
+use Searchable;
+use HasRoles;
 
     const TABLE = 'users';
 
